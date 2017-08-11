@@ -96,21 +96,24 @@ class multiColSeqSeparate:
 		ind = 0
 		startind = ind
 		lastlb = self.data.iloc[startind,self.lbcol]
-		while ind<self.nRow:
-			if self.data.iloc[ind,self.lbcol]==lastlb:
-				ind+=1
-			else:
-				for spindex in range(self.downsample):
-					fname =self.dataProcDir+"/"+self.DataDir+ self.fname.split(".")[0]+"-%d"%(ind-1)+"-%d"%(spindex)+"-%d"%(lastlb)+".txt"
-					self.data.iloc[startind+spindex:ind:self.downsample,colnlist].to_csv(fname,index=False,header=header)
-					fd.write(fname+"\n")
-
-				startind=ind
-				lastlb = self.data.iloc[startind,self.lbcol]
-		for spindex in range(self.downsample):
-			fname =self.dataProcDir+"/"+self.DataDir+ self.fname.split(".")[0]+"-%d"%(ind-1)+"-%d"%(spindex)+"-%d"%(lastlb)+".txt"
-			self.data.iloc[startind+spindex:ind:self.downsample,colnlist].to_csv(fname,index=False,header=header)
-			fd.write(fname+"\n")
-			
+		try:
+			while ind<self.nRow:
+				if self.data.iloc[ind,self.lbcol]==lastlb:
+					ind+=1
+				else:
+					for spindex in range(self.downsample):
+						fname =self.dataProcDir+"/"+self.DataDir+ self.fname.split(".")[0]+"-%d"%(ind-1)+"-%d"%(spindex)+"-%d"%(lastlb)+".txt"
+						self.data.iloc[startind+spindex:ind:self.downsample,colnlist].to_csv(fname,index=False,header=header)
+						fd.write(fname+"\n")
+					startind=ind
+					lastlb = self.data.iloc[startind,self.lbcol]
+			for spindex in range(self.downsample):
+				fname =self.dataProcDir+"/"+self.DataDir+ self.fname.split(".")[0]+"-%d"%(ind-1)+"-%d"%(spindex)+"-%d"%(lastlb)+".txt"
+				self.data.iloc[startind+spindex:ind:self.downsample,colnlist].to_csv(fname,index=False,header=header)
+				fd.write(fname+"\n")
+		except:
+			print(fname)
+			print(self.fname)
+			sys.exit(0)
 		fd.close()
 
