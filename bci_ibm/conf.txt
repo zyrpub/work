@@ -1,0 +1,30 @@
+from_conf     = 1
+from_tasklist = 0
+
+use_cache = 1  #    0: not memcached
+cache_place = lookup   # local or servers or lookup 
+
+convertToSampleRate = 125
+
+datasets = bci3d3a bci3d4a bci3d4c bci3d5 bci4d2a
+dataSetsDirshu = /dccstor/shu1/bci/
+dataProcDirshu = /dccstor/shu1/bci/
+dataSetsDirsrallap = /dccstor/srallap1/eeg/bci
+dataProcDirsrallap = /dccstor/srallap1/eeg/bci
+dataSetsDirzhao97 = /home/zhao97/bci/
+dataProcDirzhao97 = /home/zhao97/bci/
+
+rawfolder = raw/
+datafolder = data125/
+metafolder = meta125/
+
+mc_train_da_str =  r
+mc_train_lb_str =  s
+mc_test_da_str  =  e
+mc_test_lb_str  =  f
+
+nepoch = 0
+batch_size = 0
+init_lr = 0.0
+end_lr = 0.000
+regularize_coef = 7e-4 # l2_loss

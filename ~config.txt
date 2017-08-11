@@ -1,0 +1,38 @@
+—————mac osx new config————
+	
+
+    1. open in terminal:
+
+System Preferences and select Keyboard > Shortcuts > Services. Find "New Terminal at Folder" in the settings and click the box. Now, when you're in Finder, just right-click a folder and you're shown the open to open Terminal.
+
+install https://www.xquartz.org/
+
+download https://github.com/jbtule/cdto#cd-to
+copy to App, drag ./terminal/cd to.app to bar with Cmd+Alt.
+
+
+    2. vim ~/.bash_profile
+alias ll='ls -alh'
+
+
+    3. sublime
+https://www.sublimetext.com/3
+
+    
+    4. Turn on "three finger drag" for your Force Touch trackpad
+System Preferences.
+Click the Accessibility icon.
+Choose Mouse & Trackpad from the options on the left.
+Click Trackpad Options.
+Place a checkmark next to "Enable dragging." 
+From the related pop-up menu, choose “three finger drag” so there's a checkmark next to it.
+
+
+    5. Double click minimize.
+System Preferences > Dock > Select "Double-click a window's title bar to" "Zoom", then it should work. As of now yours is minimize.
+
+    6. dropbox, install dmg in yrzhao1991 mail sent, droplinux@mail, dropmac@mail, 2**8*M**.
+
+    7. Anaconda, 
+
+    8. 

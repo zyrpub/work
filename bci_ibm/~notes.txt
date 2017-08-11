@@ -1,0 +1,124 @@
+mstart mstop 
+conv bn act drop 
+elu is better 
+regu 6->9e-4
+bci3d3a bci3d4a bci3d4c bci3d5 bci4d2a
+no normalize raw, no aug, 
+
+
+------------ tf 4d2a ```no normalize``` 125Hz ```aug0 no``` inproj30,outdim95, 
+-- Aug 11
+1 4train deep inproj30, outdim95, 0.75
+3 4train  inproj30, outdim95, 0.794230769231 +++ 
+
+
+-- Aug 10
+6 4train inproj20, outdim90, 0.789423076923 +++ log/log-4train.py193.180-0-2017-08-10-17-17-01.txt
+7 4train inproj20, outdim95, 0.774230769231
+8 4train inproj25, outdim90, 0.779423076923
+9 4train inproj25, outdim95, 0.778461538462
+10 4train inproj30, outdim90, 0.778653846154
+11 4train inproj30, outdim95, 0.791923076923 +++ log/log-4train.py193.185-0-2017-08-10-17-22-23.txt
+1  3train outdim90, 0.683653846154
+3  2train inproj25, outdim90, 0.765576923077
+1  1train outdim80, 0.729615384615
+4  1train outdim90, 0.706153846154
+6 4train deepcv 258663p inproj30, outdim95, 0.765576923077
+7 4train deepcv 235148p inproj25, outdim90, 0.752692307692
+
+
+------------ tf 4d2a ```no normalize``` 125Hz ```aug2``` 
+-- Aug 10
+4 4train inproj30, outdim90, 0.772236503856
+6 4train inproj25, outdim95, 0.777827763496
+1 4train inproj20, outdim95, 0.77705655527
+3 4train inproj20, outdim90, 0.780334190231
+4 4train inproj30, outdim95, 0.769344473008
+
+
+------------ tf 4d2a ```Normalized``` 125Hz ```aug2``` 
+-- Aug 10
+1 4train inproj30, outdim90, 0.777570694087
+3 4train inproj25, outdim95, 0.768958868895
+
+
+------------ tf 4d2a ```Normalized``` 125Hz ```aug0 no``` outdim 95, inproj26
+-- Aug 10
+1 4train inproj20, outdim90, 0.771346153846
+3 4train inproj23, outdim90, 0.765384615385
+4 4train inproj26, outdim90, 0.780961538462
+6 4train inproj20, outdim95, 0.774038461538
+7 4train inproj20, outdim99, 0.768653846154
+1 4train inproj30, outdim90, 0.754693877551
+
+
+------------ tf 4d2a ```Normalized``` 125Hz ```aug1```
+-- Aug 10
+1 4train inproj20, outdim80, 146200p, 0.764615384615
+3 4train inproj18, outdim80, 0.764807692308
+4 4train inproj22, outdim80, 0.775769230769
+6 4train inproj20, outdim90, 0.769134615385
+
+
+------------ tf 4d2a ```no normalize``` 125Hz ```aug1```
+-- Aug 10
+1 4train inproj10, outdim80, 104980p, 0.767
+1 4train inproj15, outdim80, 125590p, 0.775576923077
+3 4train inproj20, outdim80, 146200p, 0.780384615385
+4 4train inproj25, outdim80, 166810p, 0.774326923077
+4 4train inproj10, outdim100, 110200p, 0.756923076923
+1 4train inproj10, outdim60, 99760p, 0.759326923077
+
+
+
+------------ tf per subject 125 Hz aug1   meta125/ data125/
+-- Aug 3
+3train-all useDataSets = [ 0,1,2,4 ] subj t/e: 0,1,0,0-8 [0.47466281  0.96021195  0.84046243  0.71]
+3train-all useDataSets = [ 1,2 ] subj all [0.5732746   0.6508810]
+
+2train.py bci4d2a [0, 1, 2, 3, 4, 5, 6, 7, 8] [4, 6, 8] train 0.75 test 0.837
+2train.py bci4d2a [4, 6] [4] train 0.87 test 0.79
+2train.py bci4d2a [4, 6, 8] [4, 6, 8] train 0.86 test 0.83 
+2train.py bci4d2a [0, 1, 2, 3, 4, 5, 6, 7, 8] [0, 1, 2, 3, 4, 5, 6, 7, 8] train 0.75 test .77 +++
+2train.py bci4d2a [4, 6, 8] [0, 1, 2, 3, 4, 5, 6, 7, 8] train 0.87 test .645
+2train.py bci4d2a [2, 4, 6, 7, 8] [0, 1, 2, 3, 4, 5, 6, 7, 8] train 0.85 test .71
+2train.py bci4d2a [0, 2, 3, 4, 6, 7, 8] [0, 1, 2, 3, 4, 5, 6, 7, 8] train .85 test .73 ++
+
+
+
+------------ tf all datasets 125 Hz aug
+-- Aug 1
+1 3train-all 25f 35020p all aug+1 train 4-.96,2-.96,2-1,3-.6,4-.7 test 0.38 0.66 0.81 0.36 0.68
+3 1train ens 152084p 0d train 0.96 test 0.348
+4 1train ens 240972p 1d train 0.9  test 0.629
+5 1train ens 240972p 2d train 0.96 test 0.66
+6 1train ens 94592p 3d train 3-0.4 test 0.384
+7 1train ens 98324p 4d train 0.76 test 0.74
+
+
+-- Jul 31
+1 3train-all 25f 46000p all aug-even train 4-0.93,2-1,2-1,3-0.56,4-0.66 test 0.40 0.70 0.76 0.33 0.71
+5 3train-all 25f 35000p all aug-even train 4-0.93,2-1,2-1,3-0.43,4-0.6 test 0.37 0.60 0.79 0.35 0.68
+
+
+-- Jul 28
+1 1train ens 150000p 2a test loss 0.705069 accuracy 0.7489 ++ 
+5 3train-all 30f 70000p all aug-even train 4-1,2-1,2-1,3-0.6,4-0.76 test 0.37 0.65 0.719 0.34 0.72 
+3 3train-all 25f 50000p all aug-even train 4-1,2-1,2-1,3-0.6,4-0.76 test 0.38 0.65 0.76 0.33 0.717
+
+
+------------ tf all datasets 250 Hz 
+-- Jul 27
+1 3train-all 60f 200000p 4c,2a overfit   train 1,0.7      test 0.67,0.58
+5 3train-all 60f 200000p 4c,5,2a overfit train 1,0.7,0.7 test 0.65,0.37,0.67
+4 3train-all 40f 100000p 4c,2a overfit   train 1,0.7      test 0.73,0.70
+1 3train-all 40f 100000p 4c,5,2a overfit train 1,0.65,0.75 test 0.65,0.39,0.63
+
+3 1train 750t 72ens 4d2a 60f 140000p 50ep test 0.68
+6 1train 750t 72ens 4d2a 70f 166000p 80ep test 0.72
+6 1train 750t 72ens 4d2a 70f 166000p 100ep test 0.71
+
+1 3train-all 40f 110000p all train 4-1,2-1,2-1,3-0.6,4-0.66  test 4-0.33,2-0.53,2-0.67,3-0.36,4-0.67
+5 3train-all 40f 220000p all train 4-1,2-1,2-1,3-0.7,4-0.67  test 4-0.32,2-0.53,2-0.7,3-0.36,4-0.67
+1 3train-all 60f 220000p all aug-even train 4-1,2-1,2-1,3-0.6,4-0.76  test 0.33 0.57 0.65 0.41 0.68
+4 3train-all 30f 70000p all aug-even train 4-0.93,2-1,2-1,3-0.53,4-0.76  test 0.35 0.60 0.76 0.38 0.68
